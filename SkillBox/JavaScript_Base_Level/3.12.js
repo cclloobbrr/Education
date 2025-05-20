@@ -1,8 +1,8 @@
 // Тернарный оператор
 // Замените конструкция if на тернарный оператор
 
-let randomNumber = 10
-console.log(`Произвольное число: ${randomNumber}`)
+let randomNumber = 10;
+console.log(`Произвольное число: ${randomNumber}`);
 
 // if (randomNumber > 20) {
 //   console.log("Число > 20")
