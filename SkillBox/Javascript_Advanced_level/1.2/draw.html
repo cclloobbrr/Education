@@ -1,0 +1,32 @@
+<div id="draw-me" style="position:absolute;top:0;left:0;padding:10px; background:grey; text-align: center">
+    Перетащи меня
+</div>
+
+<script>
+    (() => {
+        //создаём переменную dragDiv и подключаемся к разделу по id
+        const dragDiv = document.getElementById('draw-me');
+
+        let x, y, left, top;
+
+        function onMove(event){
+            dragDiv.style.left = (event.clientX - x + left);
+            dragDiv.style.top = (event.clientY - y + top);
+        }
+
+        //жобытия нажатия на мышку
+        dragDiv.addEventListener('mousedown', event =>{
+            x = event.clientX;
+            y = event.clientY;
+            left = parseInt(dragDiv.style.left);
+            top = parseInt(dragDiv.style.top);
+            // обработчик движения мыши по экрану
+            window.addEventListener('mousemove', onMove);
+        });
+
+        //событие отпускания мыши
+        dragDiv.addEventListener('mouseup', () => {
+            window.removeEventListener('mousemove', onMove);
+        });
+    })();
+</script>
